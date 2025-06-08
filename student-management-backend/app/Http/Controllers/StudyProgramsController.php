@@ -33,4 +33,12 @@ class StudyProgramsController extends Controller
     {
         return response()->json(['message' => 'Study program details', 'data' => $studyProgram]);
     }
+    public function viewperid(Request $request, $id)
+    {
+        $studyProgram = StudyProgram::find($id);
+        if (!$studyProgram) {
+            return response()->json(['message' => 'Study program not found'], 404);
+        }
+        return response()->json(['message' => 'Study program details', 'data' => $studyProgram]);
+    }
 }
