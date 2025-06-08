@@ -6,6 +6,7 @@ use App\Http\Controllers\FacultyController;
 use App\Http\Controllers\StudyProgramsController;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CoursesController;
 
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
@@ -26,3 +27,8 @@ Route::get('/students/{id}', [StudentsController::class, 'viewperid'])->name('st
 
 Route::post('/users', [UserController::class, 'store'])->name('users.store');
 Route::post('/login', [UserController::class, 'login'])->name('users.login');
+
+
+Route::get('/courses', [CoursesController::class, 'index'])->name('courses.index');
+Route::post('/courses', [CoursesController::class, 'store'])->name('courses.store');
+Route::get('/courses/{id}', [CoursesController::class, 'viewperid'])->name('courses.viewperid');
