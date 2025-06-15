@@ -55,4 +55,7 @@ class UserController extends Controller
     // Optionally, you can return the user data or a token
     return response()->json(['message' => 'Login successful', 'data' => $user]);
 }
+ public function logout(Request $request){
+    
+ }
 }
