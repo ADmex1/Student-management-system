@@ -13,17 +13,18 @@ return new class extends Migration
     {
         Schema::create('courses', function (Blueprint $table){
             $table->id();
+            $table->unsignedBigInteger('lecturers_id');
             $table->string('code')->unique();
             $table->string('semester')->nullable();
             $table->string('name')->unique();
-            $table->string('credits')->nullable();
+            $table->unsignedBigInteger('credits')->nullable();
             $table->text('description')->nullable();
-            $table->string('email')->unique();
-            $table->string('website')->nullable();
+            $table->string('password');
             $table->unsignedBigInteger('studyprogram_id');
             $table->unsignedBigInteger('faculty_id');
             $table->timestamps();
 
+            $table->foreign('lecturers_id')->references('id')->on('lecturers')->onDelete('cascade');
             $table->foreign('studyprogram_id')->references('id')->on('studyprograms')->onDelete('cascade');
             $table->foreign('faculty_id')->references('id')->on('faculty')->onDelete('cascade');
         });
@@ -37,6 +38,7 @@ return new class extends Migration
         Schema::dropifExists('courses');{
             $table->dropForeign(['studyprogram_id']);
             $table->dropForeign(['faculty_id']);
+            $table->dropForeign(['lecturers_id']);
             $table->dropColumn(['code', 'semester', 'name', 'credits', 'description', 'email', 'website', 'studyprogram_id', 'faculty_id']);
         }
     }
