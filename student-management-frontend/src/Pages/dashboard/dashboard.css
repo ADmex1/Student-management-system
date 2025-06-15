@@ -4,3 +4,30 @@
     padding: 2rem;
     text-align: center;
 }
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+    padding: 0 20px;
+}
+
+.dashboard-option {
+    background-color: #413d3d;
+    border: 1px solid #3c3838;
+    padding: 30px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(165, 67, 67, 0.1);
+    background-color: #6a6f78;
+}
