@@ -14,7 +14,14 @@ class paymentfee extends Model
         'semester',
         'status'
     ];
+    //Relations
     public function student():BelongsTo{
         return $this->BelongsTo(student::class);
+    }
+     public function GroupFee():BelongsTo{
+        return $this->BelongsTo(GroupFee::class);
+    }
+     public function AcademicYear():BelongsTo{
+        return $this->BelongsTo(AcademicYear::class);
     }
 }

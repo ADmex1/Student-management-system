@@ -17,6 +17,7 @@ class student extends Model
         'semester',
         'batch',
     ];
+    //Relations
     public function user():BelongsTo{
         return $this->BelongsTo(user::class);
     }

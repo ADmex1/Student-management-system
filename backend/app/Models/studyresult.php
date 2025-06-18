@@ -13,6 +13,7 @@ class studyresult extends Model
         'gps',
         'gpa',
     ];
+    //Relations
     public function student():BelongsTo{
         return $this->BelongsTo(student::class);
     }

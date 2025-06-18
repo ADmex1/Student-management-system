@@ -14,6 +14,7 @@ class classroom extends Model
         'name',
         'slug'
     ];
+    //Relations
     public function faculty(): BelongsTo{
         return $this->BelongsTo(faculty::class);
     }
@@ -32,6 +33,7 @@ class classroom extends Model
     public function schedules(): HasMany{
         return $this->HasMany(schedule::class);
     }
+    //calling a relation from different relation
     public function courses(): HasManyThrough{
         return $this->HasManyThrough(
 

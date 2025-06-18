@@ -18,11 +18,13 @@ class schedule extends Model
         'schedule_day',
         'quota',
     ];
+    //Calling the Enum
     protected function casts(): array{
         return [
             'schedule_day' => Schedules::class,
         ];
     }
+    //Relations
     public function faculty():BelongsTo{
         return $this->BelongsTo(faculty::class);
     }

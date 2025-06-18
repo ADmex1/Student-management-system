@@ -12,11 +12,13 @@ class studyplan extends Model
         'status',
         'notes',
     ];
+    //Calling the Enum
     protected function casts(): array{
         return [
             'status' => KRS::class,
         ];
     }
+    //Relations
     public function student():BelongsTo{
         return $this->BelongsTo(student::class);
     }

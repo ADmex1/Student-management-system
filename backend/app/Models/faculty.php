@@ -17,7 +17,7 @@ class Faculty extends Model
         'logo',
         'slug',
     ];
-
+    //function for upper and lowercase
     protected function code(): Attribute
     {
         return Attribute::make(
@@ -25,6 +25,7 @@ class Faculty extends Model
             set: fn(string $value) => strtolower($value),
         );
     }
+    //Relations
 
     public function majors(): HasMany
     {

@@ -12,7 +12,14 @@ class operator extends Model
         'majors_id',
         'employee_number',
     ];
+    //Relations
     public function user():BelongsTo{
         return $this->BelongsTo(user::class);
+    }
+        public function faculty():BelongsTo{
+        return $this->BelongsTo(faculty::class);
+    }
+        public function major():BelongsTo{
+        return $this->BelongsTo(major::class);
     }
 }

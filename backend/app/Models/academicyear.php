@@ -15,6 +15,7 @@ class academicyear extends Model
         'active',
 
     ];
+    //Calling the Enum
     protected function casts():array{
         return[
             'semester' => AcademicYear::class,

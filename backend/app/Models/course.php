@@ -17,6 +17,7 @@ class course extends Model
         'credit',
         'semester',
     ];
+    //Relations
     public function faculty():BelongsTo{
         return $this->BelongsTo(faculty::class);
     }

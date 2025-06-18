@@ -45,6 +45,7 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    //relations
     public function student():HasOne{
         return $this->HasOne(student::class);
     }

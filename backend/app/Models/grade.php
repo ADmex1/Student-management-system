@@ -14,6 +14,7 @@ class grade extends Model
         'meetings',
         'grade_type'
     ];
+    //Relations
     public function course():BelongsTo{
         return $this->BelongsTo(course::class);
     }

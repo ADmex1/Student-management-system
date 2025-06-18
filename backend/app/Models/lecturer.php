@@ -14,6 +14,7 @@ class lecturer extends Model
         'NID',
         'academic_title'
     ];
+    //calling the enum
     public function user():BelongsTo{
         return $this->BelongsTo(user::class);
     }

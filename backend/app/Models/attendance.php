@@ -13,6 +13,7 @@ class attendance extends Model
         'status',
         'meetings'
     ];
+    //Relations
     public function course(): BelongsTo{
         return $this->belongsTo(Course::class);
     }
