@@ -17,4 +17,34 @@ class student extends Model
         'semester',
         'batch',
     ];
+    public function user():BelongsTo{
+        return $this->BelongsTo(user::class);
+    }
+      public function faculty():BelongsTo{
+        return $this->BelongsTo(faculty::class);
+    }
+      public function major():BelongsTo{
+        return $this->BelongsTo(major::class);
+    }
+      public function studyprogram():BelongsTo{
+        return $this->BelongsTo(studyprogram::class);
+    }
+      public function classroom():BelongsTo{
+        return $this->BelongsTo(classroom::class);
+    }
+      public function groupfee():BelongsTo{
+        return $this->BelongsTo(GroupFee::class);
+    }
+      public function attendances():HasMany{
+        return $this->HasMany(attendance::class);
+    }
+      public function grades():HasMany{
+        return $this->HasMany(grade::class);
+    }
+      public function studyPlans():HasMany{
+        return $this->HasMany(studyplan::class);
+    }
+    public function studyResults():HasMany{
+        return $this->HasMany(studyresult::class);
+    }
 }

@@ -20,4 +20,13 @@ class studyprogram extends Model
             set:fn(string $value)=>strtolower($value),
         );
     }
+    public function faculty(): BelongsTo{
+        return $this->BelongsTo(faculty::class);
+    }
+    public function major():BelongsTo{
+        return $this->BelongsTo(major::class, 'majors_id');
+    }
+    public function students(): HasMany{
+        return $this->HasMany(student::class);
+    }
 }

@@ -18,4 +18,10 @@ class major extends Model
             set:fn(string $value)=>strtolower($value),
         );
     }
+    public function faculty():BelongsTo{
+        return $this-> BelongsTo(faculty::class);
+    }
+    public function studyprograms():HasMany{
+        return $this->HasMany(studyprogram::class);
+    }
 }

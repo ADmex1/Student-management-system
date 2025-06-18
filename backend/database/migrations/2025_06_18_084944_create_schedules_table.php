@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreignId('academicyears_id')->cosntrained()->cascadeonDelete();
             $table->time('class_start');
             $table->time('class_end');
-            $table->string('day');
+            $table->string('schedule_day');
             $table->unsignedInteger('quota')->default(0);
             $table->timestamps();
         });

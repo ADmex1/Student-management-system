@@ -23,4 +23,25 @@ class schedule extends Model
             'schedule_day' => Schedules::class,
         ];
     }
+    public function faculty():BelongsTo{
+        return $this->BelongsTo(faculty::class);
+    }
+       public function major():BelongsTo{
+        return $this->BelongsTo(major::class);
+    }
+       public function studyprogram():BelongsTo{
+        return $this->BelongsTo(studyprogram::class);
+    }
+       public function course():BelongsTo{
+        return $this->BelongsTo(course::class);
+    }
+      public function classroom():BelongsTo{
+        return $this->BelongsTo(classroom::class);
+    }
+       public function academicyear():BelongsTo{
+        return $this->BelongsTo(academicyear::class);
+    }
+       public function studyPlans():BelongsToMany{
+        return $this->BelongsTo(studyplan::class, 'studyplant_schedule'->withTimeStamps());
+    }
 }

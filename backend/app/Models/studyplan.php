@@ -17,4 +17,13 @@ class studyplan extends Model
             'status' => KRS::class,
         ];
     }
+    public function student():BelongsTo{
+        return $this->BelongsTo(student::class);
+    }
+    public function academicyear():BelongsTo{
+        return $this->BelongsTo(academicyear::class);
+    }
+    public function schedules():BelongsToMany{
+        return $this->BelongsToMany(schedule::class, 'studyplan_schedule')->withTimeStamps();
+    }
 }

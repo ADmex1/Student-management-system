@@ -14,4 +14,13 @@ class grade extends Model
         'meetings',
         'grade_type'
     ];
+    public function course():BelongsTo{
+        return $this->BelongsTo(course::class);
+    }
+        public function student():BelongsTo{
+        return $this->BelongsTo(student::class);
+    }
+        public function classroom():BelongsTo{
+        return $this->BelongsTo(classroom::class);
+    }
 }

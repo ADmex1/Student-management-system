@@ -3,23 +3,41 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class faculty extends Model
+class Faculty extends Model
 {
-    protected $fillable=[
+    use HasFactory;
+
+    protected $fillable = [
         'name',
         'code',
         'logo',
         'slug',
     ];
 
-    protected function code():Attribute{
-        //Transform the letters of the Code to uppercase letter, but kept it lowercase on database
+    protected function code(): Attribute
+    {
         return Attribute::make(
-            //Accessor
-            get:fn(string $value) => strtoupper($value),
-            //Mutator
-            set:fn(string $value) => strtolower($value),
+            get: fn(string $value) => strtoupper($value),
+            set: fn(string $value) => strtolower($value),
         );
+    }
+
+    public function majors(): HasMany
+    {
+        return $this->hasMany(Major::class);
+    }
+
+    public function studyprograms(): HasMany
+    {
+        return $this->hasMany(StudyProgram::class);
+    }
+
+    public function students(): HasMany
+    {
+        return $this->hasMany(Student::class);
     }
 }

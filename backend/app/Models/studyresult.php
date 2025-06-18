@@ -13,4 +13,13 @@ class studyresult extends Model
         'gps',
         'gpa',
     ];
+    public function student():BelongsTo{
+        return $this->BelongsTo(student::class);
+    }
+    public function academicyear():BelongsTo{
+        return $this->BelongsTo(academicyear::class);
+    }
+    public function grades():HasMany{
+        return $this->HasMany(studyresultgrade::class);
+    }
 }

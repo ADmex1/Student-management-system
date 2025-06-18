@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('faculty_id')->constrained()->oncascadeDelete();
             $table->foreignId('majors_id')->constrained()->oncascadeDelete();
-            $table->foreignId('academicyears_id')->constrained()->oncascadeDelete();
+            $table->foreignId('academicyears_id')->nullable()->constrained()->oncascadeDelete();
             $table->string('name');
             $table->string('code')->unique();
-            $table->string('slug')->unqiue();
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }

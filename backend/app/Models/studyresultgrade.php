@@ -13,4 +13,10 @@ class studyresultgrade extends Model
         'weight_value',
         'grade'
     ];
+    public function StudyResult():BelongsTo{
+        return $this->BelongsTo(studyresult::class);
+    }
+    public function course():BelongsTo{
+        return $this->BelongsTo(course::class);
+    }
 }
