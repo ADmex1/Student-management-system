@@ -33,12 +33,24 @@ class HandleInertiaRequests extends Middleware
         return [
             ...parent::share($request),
             'auth' => [
-                'user' => $request->user(),
+                'user' => $request->user() ? new userSingleResource($request->user()):null,
+            ],
+            'flashMessage' =>fn()=>[
+                'type' =>  $request->session()->get('type'),
+                'message'=> $request->session()->get('message'),
             ],
             'ziggy' => fn () => [
                 ...(new Ziggy)->toArray(),
                 'location' => $request->url(),
             ],
+            'ActiveStudent' => fn() => ActiveStudent::query()->where('active', true)->first(),
+            'checkFee' =>fn()=>$request->user() && $request->user()->student
+            ? Fee::query() 
+            ->where('student_id',  auth()->user()->student->id)
+            ->where('academic_year_id', 'ActiveStudent'()->id)
+            ->where('semester', auth()->user()->student->semester)
+            ->where('status', FeeStatus::SUCCESS->value)
+            :null
         ];
     }
 }
